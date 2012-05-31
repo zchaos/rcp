@@ -31,5 +31,61 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="rcptest.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="rcptest.commands.category"
+            id="rcptest.commands.sampleCommand"
+            name="Sample Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="rcptest.handlers.SampleHandler"
+            commandId="rcptest.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="rcptest.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="rcptest.menus.sampleMenu"
+               label="Sample Menu"
+               mnemonic="M">
+            <command
+                  commandId="rcptest.commands.sampleCommand"
+                  id="rcptest.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="rcptest.toolbars.sampleToolbar">
+            <command
+                  commandId="rcptest.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  id="rcptest.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
 
 </plugin>
