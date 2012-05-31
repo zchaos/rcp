@@ -55,5 +55,23 @@
          </action>
       </actionSet>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+         <command
+         	id="rcptest.actions.command"
+         	name="Sample Action"
+         	>
+         </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+         <key 
+         	cmmandId="rcptest.actions.command"
+         	contextId="org.eclipse.ui.contexts.window"
+         	schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         	name="Sample Action"
+         	sequence="M1+6">
+         </key>
+   </extension>
 
 </plugin>
