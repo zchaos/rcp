@@ -45,6 +45,7 @@
             </separator>
          </menu>
          <action
+         	   definitionId="rcptest.actions.command"
                class="rcptest.actions.SampleAction"
                icon="icons/sample.gif"
                id="rcptest.actions.SampleAction"
