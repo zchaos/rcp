@@ -36,5 +36,12 @@
       <view id="rcptest.view.view1" name="Sample View" class="rcptest.view.SampleViewPart" icon="icons/alt_window_16.gif" restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution id="rcptest.view.viewContribution" targetID="rcptest.view.view1">
+      	<action id="rcptest.view.action" label="First View Action" class="rcptest.action.SampleAction" menubarPath="addtional" toolbarPath="addtional" icon="icons/alt_window_16.gif" style="push">
+      	</action>
+      </viewContribution>
+   </extension>
 
 </plugin>
