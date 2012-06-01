@@ -1,6 +1,10 @@
 package rcptest;
 
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -9,8 +13,13 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+
+import rcptest.editor.SampleEditor;
+import rcptest.editor.SampleInput;
 
 public class View extends ViewPart {
 	public static final String ID = "rcptest.view";
@@ -63,6 +72,25 @@ public class View extends ViewPart {
 		viewer.setLabelProvider(new ViewLabelProvider());
 		// Provide the input to the ContentProvider
 		viewer.setInput(new String[] { "One", "Two", "Three" });
+
+		viewer.addDoubleClickListener(new IDoubleClickListener() {
+
+			@Override
+			public void doubleClick(DoubleClickEvent arg0) {
+				ISelection selection = viewer.getSelection();
+				Object obj = ((IStructuredSelection) selection).getFirstElement();
+				String node = obj.toString();
+
+				SampleInput input = new SampleInput(node);
+				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+
+				try {
+					page.openEditor(input, SampleEditor.ID);
+				} catch (PartInitException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		});
 	}
 
 	/**

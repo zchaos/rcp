@@ -65,5 +65,9 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+         <editor id="rcptest.editor" name="Sample Editor" icon="icons/alt_window_16.gif" class="rcptest.editor.SampleEditor"></editor>
+   </extension>
 
 </plugin>
