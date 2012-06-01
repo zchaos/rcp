@@ -31,5 +31,10 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view id="rcptest.view.view1" name="Sample View" class="rcptest.view.SampleViewPart" icon="icons/alt_window_16.gif" restorable="true">
+      </view>
+   </extension>
 
 </plugin>
