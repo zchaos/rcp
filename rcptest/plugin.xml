@@ -67,7 +67,7 @@
    <extension
          point="org.eclipse.ui.bindings">
          <key 
-         	cmmandId="rcptest.actions.command"
+         	commandId="rcptest.actions.command"
          	contextId="org.eclipse.ui.contexts.window"
          	schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          	name="Sample Action"
