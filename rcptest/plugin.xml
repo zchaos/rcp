@@ -24,12 +24,17 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="rcptest.application"
-            name="Hello RCP">
+            name="Sample Text Edit Application">
          <property
                name="windowImages"
                value="icons/alt_window_16.gif,icons/alt_window_32.gif">
          </property>
       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+         <editor id="rcptest.editor.texteditor" name="Text Editor" icon="icons/file.gif" default="false" class="rcptest.editor.SampleTextEditor">
+         </editor>
    </extension>
 
 </plugin>
